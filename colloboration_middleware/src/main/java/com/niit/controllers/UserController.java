@@ -47,6 +47,8 @@ public class UserController {
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);//401
 		}
 		else{//valid credentials, success
+			validUser.setOnline(true);
+			userDao.update(validUser);
 			return new ResponseEntity<User>(validUser,HttpStatus.OK);
 		}
 	}

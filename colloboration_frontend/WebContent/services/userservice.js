@@ -10,6 +10,10 @@ app.factory('UserService',function($http){
 	 return $http.post(BASE_URL + "/register",user)
 	}
 	
+	userService.login=function(user){
+		return $http.post(BASE_URL + "/login",user)
+	}
+	
 	
 	return userService;
 })

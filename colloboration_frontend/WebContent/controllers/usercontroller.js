@@ -13,4 +13,15 @@ app.controller('UserController',function($scope,UserService,$location){
 			$scope.error=response.data  //ErrorClazz object
 		})
 	}
+	
+	
+	$scope.login=function(){
+		UserService.login($scope.user).then(function(response){
+			$location.path('/home')
+			},function(response){
+				$scope.error=response.data
+				$location.path('/login')
+			})
+		
+	}
 })
