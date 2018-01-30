@@ -1,5 +1,7 @@
 package com.niit.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,11 +37,9 @@ public class UserController {
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	//{'email':'john.s@abc.com','password':'123'}  - i/p
-	public ResponseEntity<?> login(@RequestBody User user){
+	public ResponseEntity<?> login(@RequestBody User user,HttpSession session){
 		User validUser=userDao.login(user);
 		if(validUser==null)//invalid credentials, error
 		{
@@ -49,7 +49,27 @@ public class UserController {
 		else{//valid credentials, success
 			validUser.setOnline(true);
 			userDao.update(validUser);
+			session.setAttribute("loginId",validUser.getEmail());
 			return new ResponseEntity<User>(validUser,HttpStatus.OK);
 		}
 	}
+	@RequestMapping(value="/logout",method=RequestMethod.PUT)
+	public ResponseEntity<?> logout(HttpSession session){
+		String email=(String)session.getAttribute("loginId");
+		if(email==null) {
+			ErrorClazz error=new ErrorClazz(3,"Unauthorized access");
+			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
+		}
+		User user=userDao.getUser(email);
+		user.setOnline(false);
+		userDao.update(user);
+		session.removeAttribute("loginId");
+		session.invalidate();
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	
+		
+	}
+	
+	
+	
 }
