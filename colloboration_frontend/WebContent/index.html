@@ -25,7 +25,8 @@
         <span class="icon-bar"></span>
       	</button>
 				<div class="navbar-header">
-				<a class="navbar-brand" href="/"><img src="/resources/images" alt="LOGO" height="130px" width="30px"></a>
+				
+                    <a class="navbar-brand" href="/"><img src="resources/images/" width="130" height="30" alt="NIIT"></a>
 			</div>
 	<div  class="collapse navbar-collapse" id="collapse-example">
 	<ul class="nav navbar-nav">
@@ -33,7 +34,9 @@
 	<li><a href="#/register" ng-hide="loggedInUser.firstname">Sign UP</a></li>
 	<li><a href="#/login" ng-hide="loggedInUser.firstname">Sign In</a></li>
 	<li><a href="" ng-show="loggedInUser.firstname">Welcome {{loggedInUser.firstname}}&nbsp; {{loggedInUser.lastname}}</a></li>
+	<li><a href="#/editprofile" ng-show="loggedInUser.firstname">My Profile</a></li>
 	<li><a href="" ng-click="logout()" ng-show="loggedInUser.firstname">logout</a></li>
+	
 	</ul>
 	</div>
 	</div></nav>
@@ -53,5 +56,4 @@
 <script type="text/javascript" src="controllers/usercontroller.js"></script>
 <script type="text/javascript" src="services/userservice.js"></script>
 </html>
-
 

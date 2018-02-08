@@ -12,10 +12,18 @@ app.config(function($routeProvider){
 		templateUrl:'views/login.html',
 		controller:'UserController'
 	})
-	.otherwise({
+	.when('/editprofile',{
+		templateUrl:'views/updateform.html',
+		controller:'UserController'
+	})
+	.when('/home',{
 		templateUrl:'views/home.html'
 	})
-})	
+	.otherwise({
+		templateUrl:'views/login.html'
+	})
+	
+})
 app.run(function($rootScope,$cookieStore,UserService,$location){
 
 	if($rootScope.loggedInUser==undefined)
