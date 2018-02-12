@@ -34,6 +34,17 @@
 	<li><a href="#/register" ng-hide="loggedInUser.firstname">Sign UP</a></li>
 	<li><a href="#/login" ng-hide="loggedInUser.firstname">Sign In</a></li>
 	<li><a href="" ng-show="loggedInUser.firstname">Welcome {{loggedInUser.firstname}}&nbsp; {{loggedInUser.lastname}}</a></li>
+	
+	<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="loggedInUser.firstname">Job<b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/addjob" ng-show="loggedInUser.role=='ADMIN'">Add Job</a></li>
+							
+						</ul></li>
+	
+	
+	
 	<li><a href="#/editprofile" ng-show="loggedInUser.firstname">My Profile</a></li>
 	<li><a href="" ng-click="logout()" ng-show="loggedInUser.firstname">logout</a></li>
 	
@@ -55,5 +66,10 @@
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="controllers/usercontroller.js"></script>
 <script type="text/javascript" src="services/userservice.js"></script>
+
+<script type="text/javascript" src="controllers/jobcontroller.js"></script>
+<script type="text/javascript" src="services/jobservice.js"></script>
+
+
 </html>
 
