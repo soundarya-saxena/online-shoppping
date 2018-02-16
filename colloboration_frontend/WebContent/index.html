@@ -43,6 +43,14 @@
 							<li><a href="#/getalljobs">All Jobs</a></li>
 						</ul></li>
 	
+	<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="loggedInUser.firstname">Blog<b
+						class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/addblog">Add Blog</a></li>
+							
+						</ul></li>
+	
 	
 	
 	<li><a href="#/editprofile" ng-show="loggedInUser.firstname">My Profile</a></li>
@@ -70,6 +78,8 @@
 <script type="text/javascript" src="controllers/jobcontroller.js"></script>
 <script type="text/javascript" src="services/jobservice.js"></script>
 
+<script type="text/javascript" src="controllers/blogcontroller.js"></script>
+<script type="text/javascript" src="services/blogservice.js"></script>
 
 </html>
 
