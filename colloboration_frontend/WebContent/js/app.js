@@ -38,6 +38,16 @@ app.config(function($routeProvider){
 			templateUrl:'views/blogform.html',
 			controller:'BlogController'
 		})
+		
+		.when('/getblogs',{
+			templateUrl:'views/bloglist.html',
+			controller:'BlogController'
+		})
+		
+	.when('/getblog/:id',{
+		templateUrl:'views/blogpostdetail.html',
+		controller:'BlogPostDetailController'
+	})
 
 	
 	.otherwise({
