@@ -19,5 +19,14 @@ app.factory('BlogService',function($http){
 		blog.getBlog=function(id){
 			return $http.get(BASE_URL + "/getblog/"+id)
 		}
+		
+
+	    blog.hasUserLikedPost=function(id){
+	    	return $http.get(BASE_URL + "/haspostliked/"+id);
+	    }
+	    
+	    blog.updateLikes=function(id){
+	    	return $http.put(BASE_URL + "/updatelikes/"+id);
+	    }
 		return blog;
 })

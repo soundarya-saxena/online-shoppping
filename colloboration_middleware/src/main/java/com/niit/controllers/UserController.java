@@ -33,7 +33,7 @@ public class UserController {
 			return new ResponseEntity<User>(user,HttpStatus.CREATED);
 		}
 		catch(Exception e) {
-			ErrorClazz error=new ErrorClazz(2,"Unable to register user details"+e.getMessage());
+			ErrorClazz error=new ErrorClazz(2,"Unable to register user details");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

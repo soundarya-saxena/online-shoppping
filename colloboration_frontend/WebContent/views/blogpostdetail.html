@@ -9,5 +9,15 @@
 		    <p ng-bind-html="content"></p><!-- content is blogPost.blogContent as HTML -->
 		</div>
 	</div>
-
+</div>
+<div>
+<div ng-show="isLiked">
+<a><span class="glyphicon glyphicon-thumbs-up" style="color:blue" ng-click="updateLikes(blogPost.id)"></span></a>
+<!-- delete data from blogpostlikes and decrement the number of likes -->
+</div>
+<div ng-show="!isLiked">
+<a><span class="glyphicon glyphicon-thumbs-up" style="color:black" ng-click="updateLikes(blogPost.id)"></span></a>
+<!--  insert data into blogpostlikes and increment the number of likes -->
+</div>
+{{blogPost.likes}} likes
 </div>
