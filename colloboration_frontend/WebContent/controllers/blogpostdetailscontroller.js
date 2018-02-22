@@ -3,6 +3,7 @@
  */
 app.controller('BlogPostDetailController',function($scope,$routeParams,$location,BlogService,$sce,$rootScope){
 	var id=$routeParams.id;
+	$scope.isRejected=false;
 	
 	BlogService.getBlog(id).then(function(response){
 		$scope.blogPost=response.data //select * from blogpost where id=?
@@ -40,5 +41,30 @@ app.controller('BlogPostDetailController',function($scope,$routeParams,$location
 				})
 	}
 	
-
+	$scope.showRejectionTxt=function(){
+		$scope.isRejected=true;
+	}
+	
+	$scope.blogApproved=function(id){
+		BlogService.blogApproved(id).then(
+				function(response){
+					$location.path('/getblogs')
+				},function(response){
+					$rootScope.error=response.data;
+					if(response.status == 401)
+						$location.path('/login')
+				})
+		}
+	$scope.blogRejected=function(id,rejectionReason){
+	 BlogService.blogRejected(id,rejectionReason).then(function(response){
+		 $location.path('/getblogs')
+	 },function(response){
+		 $rootScope.error = response.data;
+		 if (response.status == 401)
+			 $location.path('/login')
+	 
+	 })
+	 
+	}
+	
 })

@@ -28,5 +28,13 @@ app.factory('BlogService',function($http){
 	    blog.updateLikes=function(id){
 	    	return $http.put(BASE_URL + "/updatelikes/"+id);
 	    }
+	    blog.blogApproved=function(id){
+	    	return $http.put(BASE_URL + "/blogapproved/"+id);
+	    }
+	    blog.blogRejected=function(id,rejectionReason){
+	    	return $http.put(BASE_URL + '/blogrejected/'+id + "/"+rejectionReason);
+	    }
+
+
 		return blog;
 })

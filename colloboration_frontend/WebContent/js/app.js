@@ -48,6 +48,11 @@ app.config(function($routeProvider){
 		templateUrl:'views/blogpostdetail.html',
 		controller:'BlogPostDetailController'
 	})
+	
+	.when('/getapprovalform/:id',{
+		templateUrl:'views/approvalform.html',
+		controller:'BlogPostDetailController'
+	})
 
 	
 	.otherwise({

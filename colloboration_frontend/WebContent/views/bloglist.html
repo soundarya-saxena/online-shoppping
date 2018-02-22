@@ -5,7 +5,7 @@
 			<div class="panel-heading">List of blogs waiting for approval</div>
 			<div class="panel-body">
 				<div ng-repeat="blog in blogsWaitingForApproval">
-						<br><b><a href="#/getblog/{{blog.id}}">{{blog.blogTitle}}</a></b><br> 
+						<br><b><a href="#/getapprovalform/{{blog.id}}">{{blog.blogTitle}}</a></b><br> 
 						<b>Author:</b>{{blog.postedBy.firstname}}&nbsp;{{blog.postedBy.lastname}}<br>
 						{{blog.postedOn | date:'medium'}} <br>
 				</div>
