@@ -54,7 +54,7 @@ app.config(function($routeProvider){
 		templateUrl:'views/approvalform.html',
 		controller:'BlogPostDetailController'
 	})
-	.when('/getapprovalform/:id',{
+	.when('/getnotification/:id',{
 		templateUrl:'views/notificationdetails.html',
 		controller:'NotificationController'
 	})
