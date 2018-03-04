@@ -69,9 +69,10 @@
 </li>						
 							
 	<li><a href="#/editprofile" ng-show="loggedInUser.firstname">My Profile</a></li>
-	
-	
-		
+	{{loggedInUser.email}}
+	<li><a href="#/uploadprofilepic" ng-show="loggedInUser.firstname"><img src="http://localhost:8084/colloboration_middleware/getimage/{{loggedInUser.email}}"
+	alt="upload picture" width="40px" height="40px"></a></li>
+
 	<li><a href="" ng-click="logout()" ng-show="loggedInUser.firstname">logout</a></li>
 	
 	</ul>
