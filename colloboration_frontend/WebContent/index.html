@@ -54,6 +54,15 @@
 							<li><a href="#/getblogs">Get Blogs</a></li>
 							</ul></li>
 							
+		<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="loggedInUser.firstname">Friend<b
+						class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/suggestedusers">Suggested Users</a></li>
+							<li><a href="#/pendingrequests">Pending Requests</a></li>
+							<li><a href="#/friends">Friends</a></li>
+							</ul></li>					
+							
 	<li class="dropdown" >
 <a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="loggedInUser.firstname"> 
 <span class="glyphicon glyphicon-globe" > 
@@ -69,7 +78,6 @@
 </li>						
 							
 	<li><a href="#/editprofile" ng-show="loggedInUser.firstname">My Profile</a></li>
-	{{loggedInUser.email}}
 	<li><a href="#/uploadprofilepic" ng-show="loggedInUser.firstname"><img src="http://localhost:8084/colloboration_middleware/getimage/{{loggedInUser.email}}"
 	alt="upload picture" width="40px" height="40px"></a></li>
 
@@ -102,9 +110,14 @@
 
 <script type="text/javascript" src="controllers/blogpostdetailscontroller.js"></script>
 
-
 <script type="text/javascript" src="controllers/notificationcontroller.js"></script>
 <script type="text/javascript" src="services/notificationservice.js"></script>
+
+<script type="text/javascript" src="controllers/friendcontroller.js"></script>
+<script type="text/javascript" src="services/friendservice.js"></script>
+
+
+
 
 </html>
 
